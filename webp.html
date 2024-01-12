@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>
+            Web Assembly Hello World
+        </title>
+
+        <script src="webp.js"></script>
+    </head>
+
+    <body>
+        <p>Hello WebAssembly</p>
+
+        <script>
+            Module.onRuntimeInitialized = async (_) => {
+                const api = {
+                    version: Module.cwrap('version', 'number', []),
+                };
+                console.log(api.version());
+            };
+        </script>
+    </body>
+</html>
